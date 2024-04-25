@@ -32,39 +32,49 @@
         <h1>Amadas Beauty</h1>
         <p>Depilación con hilo - Lifting/Ondulado de pestañas</p>
         <div class="menu-cont">
-            <div id="menu1" class="menu-item" onclick="menu1()">
+            <div id="menu1" class="menu-item" onclick="openModal('quees')">
                 <img src="./media/ico-menu/quees.webp" alt="">
             </div>
-            <div id="menu2" class="menu-item">
+            <div id="menu2" class="menu-item" onclick="openModal('estudio')">
                 <img src="./media/ico-menu/estudio.webp" alt="">
             </div>
-            <div id="menu3" class="menu-item">
+            <div id="menu3" class="menu-item" onclick="openModal('valores')">
                 <img src="./media/ico-menu/valores.webp" alt="">
             </div>
-            <div id="menu8" class="menu-item">
+            <div id="menu8" class="menu-item" onclick="openModal('ustedes')">
                 <img src="./media/ico-menu/ustedes.webp" alt="">
             </div>
-            <div id="menu4" class="menu-item">
+            <div id="menu4" class="menu-item" onclick="openModal('cuidados')">
                 <img src="./media/ico-menu/cuidados.webp" alt="">
             </div>
-            <div id="menu5" class="menu-item">
+            <div id="menu5" class="menu-item" onclick="openModal('info')">
                 <img src="./media/ico-menu/info.webp" alt="">
             </div>
-            <div id="menu6" class="menu-item">
+            <div id="menu6" class="menu-item" onclick="openModal('promos')">
                 <img src="./media/ico-menu/promos.webp" alt="">
             </div>
-            <div id="menu7" class="menu-item">
+            <div id="menu7" class="menu-item" onclick="openModal('concursos')">
                 <img src="./media/ico-menu/concursos.webp" alt="">
             </div>
             
         </div> 
-        <section id="myModal" class="modal-content">
+        <!-- <section id="myModal" class="modal-content">
             <div class="modal">
                 <i class="bi bi-x-circle-fill close"></i>
                 <div class="menu-item">
                     <img src="./media/ico-menu/quees.webp" alt="">
                 </div>
                 <video src="./media/sofi/quees1.mp4" muted autoplay loop></video>
+            </div>
+        </section> -->
+        <section id="myModal" class="modal-content">
+            <div class="modal">
+                <i class="bi bi-x-circle-fill close" onclick="closeModal()"></i>
+                <div class="menu-item">
+                    <img id="modalImg" src="" alt="">
+                </div>
+                <img id="modalImagen" src="" alt="">
+                <video id="modalVideo" src="" muted autoplay loop></video>
             </div>
         </section>
     </main>

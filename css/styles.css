@@ -169,6 +169,9 @@ p {
 }
 
 /*************MODAL*/
+#myModal{
+    display: none;
+}
 .modal-content{
     position:absolute;
     width: 100%;
@@ -181,18 +184,29 @@ p {
     align-items: center;
 }
 .modal{
-    width: 90%;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 30px;
+    animation: modal 1s 1;
+}
+
+@keyframes modal{
+    0%{
+        transform:scale(0.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 .modal .menu-item {
     position: absolute;
-    background-color: white;
-    height: 140px;
+    background-color: rgb(255, 255, 255);
+    height: 110px;
     width: 110px;
     box-shadow: 5px 5px 1px rgb(232, 124, 124);
     border-radius: 300px;
@@ -200,9 +214,22 @@ p {
     border: 2px solid rgb(175, 91, 91);
     top: 20px;
 }
-.modal video{
+#modalVideo{
     width: 90%;
+    max-width: 300px;
     border-radius: 20px;
+    border:8px solid black;
+    padding: 20px 0 ;
+    background-color: black;
+    animation: modal 1s 1;
+}
+.modalImagen{
+    width: 90%;
+    max-width: 300px;
+    border-radius: 20px;
+    border:8px solid black;
+    padding: 20px 0 ;
+    border:2px solid black;
 }
 .close{
     z-index: 1;

@@ -136,7 +136,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 h1 {
@@ -316,9 +316,13 @@ footer {
     width: 100%;
     margin-bottom: 20px;
 }
-
+.rrss{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
 footer i {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 footer p {

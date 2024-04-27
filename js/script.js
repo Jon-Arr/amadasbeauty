@@ -1,3 +1,4 @@
+/*********************************Menu */
 function openMenu() {
     // document.getElementById("menu").style.display = "flex"
     document.getElementById("ico-menu-on").style.display = "none"
@@ -37,6 +38,8 @@ function closeMenu() {
 //     }
 // }
 
+/*********************************************MODAL */
+
 function openModal(item) {
     const modal = document.getElementById("myModal")
     modal.style.display = "block"
@@ -64,3 +67,43 @@ function closeModal() {
     modalImg.src = "";
     modalVideo.src = "";
 }
+
+/*********************************************AGENDA */
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'timeGridWeek',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'timeGridWeek'
+      },
+      events: [
+        {
+          title: '13:00 - 14:00',
+          daysOfWeek: [1, 3, 5],
+          startTime: '13:00',
+          endTime: '14:00',
+          color: '#50C878'
+        },
+        {
+          title: '16:00 - 17:00',
+          daysOfWeek: [1, 3, 5],
+          startTime: '16:00',
+          endTime: '17:00',
+          color: '#50C878'
+        },
+        {
+          title: '18:00 - 19:00',
+          daysOfWeek: [1, 3, 5],
+          startTime: '18:00',
+          endTime: '19:00',
+          color: '#50C878'
+        }
+      ]
+    });
+
+    calendar.render();
+  });

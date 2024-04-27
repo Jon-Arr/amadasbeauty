@@ -294,7 +294,18 @@ form{
     justify-content: center;
     align-items: center;
     text-align: center;
+    border: 2px solid rgb(175, 91, 91);
+    box-shadow: 5px 5px 1px rgb(232, 124, 124);
+    border-radius: 20px;
+    padding: 10px;
 }
+
+/****************************************************AGENDA*/
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
 /****************************************************FOOTER*/
 footer {
@@ -311,7 +322,7 @@ footer i {
 }
 
 footer p {
-    font-size: 15px;
+    font-size: 13px;
     align-self: center;
     justify-self: center;
 }

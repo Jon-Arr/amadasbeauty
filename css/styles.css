@@ -217,7 +217,7 @@ hr{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30px;
+    /* top: 30px; */
     animation: modal 1s 1;
 }
 
@@ -266,6 +266,34 @@ hr{
     align-self: end;
     color: white;
     margin-top: 50px;
+}
+
+/****************************************************CONTACTO*/
+.contacto i{
+    font-size: 20px;
+    border: 2px solid rgb(175, 91, 91);
+    box-shadow: 5px 5px 1px rgb(232, 124, 124);
+    border-radius: 20px;
+    padding: 10px;
+}
+.contacto .bi-instagram{
+    color: white;
+    background: linear-gradient(11deg, rgba(255,241,0,1) 0%, rgba(171,64,64,1) 45%, rgba(118,20,105,1) 72%, rgba(15,8,134,1) 100%);
+}
+.contacto .bi-whatsapp{
+    color: white;
+    background: rgb(95, 186, 95);
+}
+h3{
+    font-family: "loubar";
+    font-size: 15px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 /****************************************************FOOTER*/

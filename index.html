@@ -15,7 +15,13 @@
         <div class="galeria-container">
             <div class="galeria"></div>
         </div>
-        <img class="logo" src="./media/logo.jpg" alt="menu">
+        <a href="./index.html">
+            <img class="logo" src="./media/logo.jpg" alt="logo amadas beauty">
+        </a>
+        <div class="instagram">
+            <a href="https://www.instagram.com/amadasbeauty_/" target="_blank"><i class="bi bi-instagram">
+                    amadasbeauty_</i></a>
+        </div>
         <!-- <nav>
             <i id="ico-menu-on" class="bi bi-filter-circle" onclick="openMenu()"></i>
             <i id="ico-menu-off" class="bi bi-filter-circle-fill" onclick="closeMenu()"></i>
@@ -29,35 +35,45 @@
         </nav> -->
     </header>
     <main>
-        <h1>Amadas Beauty</h1>
-        <p>Depilación con hilo - Lifting/Ondulado de pestañas</p>
+        <!-- <h1>Amadas Beauty</h1> -->
+        <!-- <p>Depilación con hilo - Lifting/Ondulado de pestañas</p> -->
+        <h1>¡Bienvenido/a a Amadas Beauty!</h1>
+        <p>Conversemos:</p>
         <div class="menu-cont">
+            <div id="menu6" class="menu-item" onclick="openModal('agendar')">
+                <img src="./media/ico-menu/agendar" alt="agendar">
+            </div>
+            <div id="menu7" class="menu-item">
+                <a href="./pages/contacto.html"><img src="./media/ico-menu/contacto" alt="contacto"></a>
+            </div>
+            <hr>
             <div id="menu1" class="menu-item" onclick="openModal('quees')">
-                <img src="./media/ico-menu/quees.webp" alt="">
+                <img src="./media/ico-menu/quees.webp" alt="quees">
             </div>
             <div id="menu2" class="menu-item" onclick="openModal('estudio')">
-                <img src="./media/ico-menu/estudio.webp" alt="">
+                <img src="./media/ico-menu/estudio.webp" alt="estudio">
             </div>
-            <div id="menu3" class="menu-item" onclick="openModal('valores')">
-                <img src="./media/ico-menu/valores.webp" alt="">
-            </div>
+            <!-- <div id="menu3" class="menu-item" onclick="openModal('valores')">
+                <img src="./media/ico-menu/valores.webp" alt="valores">
+            </div> -->
             <div id="menu8" class="menu-item" onclick="openModal('ustedes')">
-                <img src="./media/ico-menu/ustedes.webp" alt="">
+                <img src="./media/ico-menu/ustedes.webp" alt="ustedes">
             </div>
             <div id="menu4" class="menu-item" onclick="openModal('cuidados')">
-                <img src="./media/ico-menu/cuidados.webp" alt="">
+                <img src="./media/ico-menu/cuidados.webp" alt="cuidados">
             </div>
             <div id="menu5" class="menu-item" onclick="openModal('info')">
-                <img src="./media/ico-menu/info.webp" alt="">
+                <img src="./media/ico-menu/info.webp" alt="info">
             </div>
             <div id="menu6" class="menu-item" onclick="openModal('promos')">
-                <img src="./media/ico-menu/promos.webp" alt="">
+                <img src="./media/ico-menu/promos.webp" alt="promos">
             </div>
             <div id="menu7" class="menu-item" onclick="openModal('concursos')">
-                <img src="./media/ico-menu/concursos.webp" alt="">
+                <img src="./media/ico-menu/concursos.webp" alt="concursos">
             </div>
             
-        </div> 
+
+        </div>
         <!-- <section id="myModal" class="modal-content">
             <div class="modal">
                 <i class="bi bi-x-circle-fill close"></i>
@@ -71,16 +87,16 @@
             <div class="modal">
                 <i class="bi bi-x-circle-fill close" onclick="closeModal()"></i>
                 <div class="menu-item">
-                    <img id="modalImg" src="" alt="">
+                    <img id="modalImg" src="" alt="icono modal">
                 </div>
-                <img id="modalImagen" src="" alt="">
+                <img id="modalImagen" src="" alt="imagen modal">
                 <video id="modalVideo" src="" muted autoplay loop></video>
             </div>
         </section>
     </main>
     <footer>
-        <i class="bi bi-instagram"></i>
-        <p>© Copiright 2024 Amadas Beauty.</p>
+        <a href="https://www.instagram.com/amadasbeauty_/" target="_blank"><i class="bi bi-instagram"></i></a>
+        <p>© Copyright 2024 Amadas Beauty.</p>
     </footer>
 
     <script src="./js/script.js"></script>

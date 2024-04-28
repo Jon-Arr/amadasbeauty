@@ -41,7 +41,7 @@ header {
     align-items: center;
     width: 100%;
 }
-video{
+.galeria-container video{
     width: 100%;
     position: relative;
     top: -150px;

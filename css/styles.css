@@ -269,6 +269,13 @@ hr{
 }
 
 /****************************************************CONTACTO*/
+.menu-cont-contacto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+    margin-top: 20px;
+}
 .contacto i{
     font-size: 20px;
     border: 2px solid rgb(175, 91, 91);
@@ -299,13 +306,27 @@ form{
     border-radius: 20px;
     padding: 10px;
 }
+button{
+    appearance: none;
+    border: 2px solid rgb(175, 91, 91);
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(241, 186, 175);
+    margin: 20px 0;
+}
 
 /****************************************************AGENDA*/
-
-#calendar {
-    max-width: 900px;
-    margin: 0 auto;
-  }
+form{
+    margin-bottom: 30px;
+}
+select{
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(246, 180, 180);
+    font-family: boriboon;
+    padding: 15px;
+}
 
 /****************************************************FOOTER*/
 footer {

@@ -43,19 +43,28 @@ function closeMenu() {
 function openModal(item) {
     const modal = document.getElementById("myModal")
     modal.style.display = "block"
-    const modalImg = document.getElementById("modalImg")
-    const modalVideo = document.getElementById("modalVideo")
-    const modalImagen = document.getElementById("modalImagen")
+    const modalImg = document.getElementById("modalImg") || null
+    const modalVideo = document.getElementById("modalVideo") || null
+    const modalImagen = document.getElementById("modalImagen") || null
     modalImg.style.display = "none";
+    modalImagen.style.display = "none";
     modalVideo.style.display = "none";
     if (item === 'quees' || item === 'estudio' || item === 'valores' || item === 'ustedes' || item === 'cuidados' || item === 'info' || item === 'promos' || item === 'concursos') {
         modalImg.style.display = "block"
         modalImg.src = `./media/ico-menu/${item}.webp`
         modalVideo.style.display = "block"
         modalVideo.src = `./media/sofi/${item}1.mp4`
+        modalVideo.onerror = function() {
+            modalVideo.style.display = "none"
+        }
         modalImagen.style.display = "block"
         modalImagen.src = `./media/sofi/${item}1.webp`
+        modalImagen.onerror = function() {
+            modalImagen.style.display = "none"
+        }
+
     } else {
+        
     }
 }
 
@@ -106,6 +115,8 @@ function showSelectedText() {
 //         comprobante.style.display = 'block';
 //         pagoBancario.href = `../php/pago.php?hora=${hora}&servicio=${servicio}&especialista=${especialista}`;
 //     });
+
+
 function alerta() {
     const hora = document.getElementById('hora').value;
     const servicio = document.getElementById('servicio').value;

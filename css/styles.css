@@ -130,22 +130,30 @@ section a{
 .menu-cont-contacto{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     gap: 50px;
     margin-top: 20px;
+    width: 100%;
 }
-.contacto i{
-    font-size: 20px;
+.contacto{
+    width: 200px;
     border: 2px solid rgb(175, 91, 91);
     box-shadow: 5px 5px 1px rgb(232, 124, 124);
     border-radius: 20px;
-    padding: 10px;
+    padding: 20px;
 }
-.contacto .bi-instagram{
+.contacto i{
+    font-size: 20px;
+    color: aliceblue;
+}
+.contacto-instagram{
     color: white;
-    background: linear-gradient(11deg, rgba(255,241,0,1) 0%, rgba(171,64,64,1) 45%, rgba(118,20,105,1) 72%, rgba(15,8,134,1) 100%);
+    /* background: linear-gradient(11deg, rgba(255,241,0,1) 0%, rgba(171,64,64,1) 45%, rgba(118,20,105,1) 72%, rgba(15,8,134,1) 100%); */
+    background: rgb(249, 92, 142);
 }
-.contacto .bi-whatsapp{
+.contacto-wsp{
     color: white;
     background: rgb(95, 186, 95);
 }

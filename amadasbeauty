@@ -1,3 +1,18 @@
+AYUDA CON DESARROLLO
+
+data [keggle](https://www.kaggle.com/)
+diseño [daily Ui](https://www.dailyui.co/)
+desarroyo [freecode](https://www.freecodecamp.org/)
+generador info [fakeclients](https://fakeclients.com/)
+generador info [id](https://idforideas.com/emploid/)
+
+ejemplos
+https://www.behance.net/lucianocoeli
+https://www.behance.net/emilianamartinez
+https://florryberg.wixsite.com/portfolio/community-manager
+https://github.com/DanielRomero1040
+https://luciadias.com/
+
 
 23/04/2024
 
@@ -42,19 +57,47 @@ sweetalert a agenda
 cambio de fondo
 22:30
 
-falta***
-    img menu
-    host
-    enviar formulario de consulta y agenta a correo de host
-    desmarcar horas disponibles cuando se agende
-    crear pagina superusr para
-        inventario
-        modificaciones a otras pg (como desbloquear agenda)
-        sistema de venta con db
-        crear superusr con usr y pss
-
 29/05/2024
 
 19:30
 modificacion completa de menu principal
 22:00
+
+11/07/2024
+
+21:00
+modificacion office.php
+modificacion nuevo_servicio.php
+-ingreso de servicios
+00:30
+
+12/07/2024
+
+19:45
+ingreso de insumos.php
+20:30
+
+14/07/2024
+
+14:30
+correccion consulta tablas en orden de fecha en intranet y limit 30 en cada una
+creacion filtros
+17:00
+BK
+17:50
+terminacion de intranet
+ingreso de totales
+21:15
+BK
+00:00
+
+falta***
+    //img menu
+    host
+    enviar formulario de consulta y agenta a correo de host
+    desmarcar horas disponibles cuando se agende
+    //crear pagina superusr para
+        inventario
+        modificaciones a otras pg (como desbloquear agenda)
+        //sistema de venta con db
+        //crear superusr con usr y pss

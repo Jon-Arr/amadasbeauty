@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Agenda - Amadas Beauty</title>
 </head>
@@ -22,24 +25,26 @@
     </header>
     <main>
         <h1>Agenda de horas</h1>
-        <!-- <p>Seleccione una de nuestras horas disponibles:</p> -->
-        <!-- <form action="#" method=""> -->
+        <p>Seleccione una de nuestras horas disponibles:</p>
+        
+        <form action="./envio_agenda.php" method="POST">
+            <div id='calendar'></div>
             <p>Seleccione día y hora</p>
-            <select name="horas-disp" id="horas-disp" onchange="showSelectedText()" required>
+            <select id="horas-disp" name="horas-disp" required>
                 <option value="" disabled selected>Horas disponibles</option>
-                <option id="lun1" name="lun1" value="Lunes a las 12:00hrs">Lunes a las 12:00hrs</option>
-                <option id="lun2" name="lun2" value="Lunes a las 14:00hrs">Lunes a las 14:00hrs</option>
-                <option id="lun3" name="lun3" value="Lunes a las 16:00hrs">Lunes a las 16:00hrs</option>
-                <option id="mie1" name="mie1" value="Miercoles a las 12:00hrs">Miercoles a las 12:00hrs</option>
-                <option id="mie2" name="mie2" value="Miercoles a las 14:00hrs">Miercoles a las 14:00hrs</option>
-                <option id="mie3" name="mie3" value="Miercoles a las 16:00hrs">Miercoles a las 16:00hrs</option>
-                <option id="vie1" name="vie1" value="Viernes a las 12:00hrs">Viernes a las 12:00hrs</option>
-                <option id="vie2" name="vie2" value="Viernes a las 14:00hrs">Viernes a las 14:00hrs</option>
-                <option id="vie3" name="vie3" value="Viernes a las 16:00hrs">Viernes a las 16:00hrs</option>
+                <option value="Lunes a las 12:00hrs">Lunes a las 12:00hrs</option>
+                <option value="Lunes a las 14:00hrs">Lunes a las 14:00hrs</option>
+                <option value="Lunes a las 16:00hrs">Lunes a las 16:00hrs</option>
+                <option value="Miercoles a las 12:00hrs">Miercoles a las 12:00hrs</option>
+                <option value="Miercoles a las 14:00hrs">Miercoles a las 14:00hrs</option>
+                <option value="Miercoles a las 16:00hrs">Miercoles a las 16:00hrs</option>
+                <option value="Viernes a las 12:00hrs">Viernes a las 12:00hrs</option>
+                <option value="Viernes a las 14:00hrs">Viernes a las 14:00hrs</option>
+                <option value="Viernes a las 16:00hrs">Viernes a las 16:00hrs</option>
             </select>
             <input id="hora" name="hora" type="text" hidden>
             <p>Seleccione el servicio que busca</p>
-            <select name="serv-disp" id="serv-disp" onchange="showSelectedText()" required>
+            <select name="serv-disp" id="serv-disp" required>
                 <option value="" disabled selected>Servicios disponibles</option>
                 <option id="lif" name="lif" value="Lifting">Lifting</option>
                 <option id="perf" name="perf" value="Perfilado de cejas">Perfilado de cejas</option>
@@ -53,16 +58,7 @@
             </select>
             <input id="especialista" name="especialista" type="text" hidden>
             <button onclick="alerta()">Confirmar</button>
-        <!-- </form> -->
-
-        <!-- <div id="comprobante" style="display: none;">
-            <p>Comprobante de selección</p>
-            <p>Día y hora seleccionados: <span id="horaSeleccionada"></span></p>
-            <p>Servicio seleccionado: <span id="servicioSeleccionado"></span></p>
-            <p>Especialista seleccionado: <span id="especialistaSeleccionado"></span></p>
-            <p>Abono a pagar: $5.000</p>
-            <p>Para confirmar su hora presione <a href="#" id="pagoBancario">aquí</a> para realizar el pago bancario.</p>
-        </div> -->
+        </form>
     </main>
     <footer>
         <hr>
@@ -78,8 +74,44 @@
         <p>© Copyright 2024 Amadas Beauty.</p>
     </footer>
 
-    <script src="../js/script.js"></script>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale:'es',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                selectable: true,
+                select: function (info) {
+                    var title = prompt('Enter Event Title:');
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: info.startStr,
+                            end: info.endStr,
+                            allDay: info.allDay
+                        });
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", "envio_agenda.php", true);
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                        xhr.send(JSON.stringify({
+                            title: title,
+                            start: info.startStr,
+                            end: info.endStr
+                        }));
+                    }
+                    calendar.unselect();
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+
 </body>
 
 </html>

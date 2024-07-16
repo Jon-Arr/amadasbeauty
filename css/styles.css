@@ -102,7 +102,7 @@ section a{
     /* border-top-left-radius: 20px;
     border-top-right-radius: 20px;     */
     border-radius: 30px;
-    background-size:cover;
+    background-size: cover;
     overflow: hidden;
     box-shadow: 10px 10px 5px rgb(232, 124, 124);
 }
@@ -116,11 +116,10 @@ section a{
     padding: 20px 0;
 }
 .seccion-agenda{
-    background-image: url("../media/seccion-contact2.jpg");
-    
+    background-image: url("../media/seccion-contact3.jpg");    
 }
 .seccion-contacto{
-    background-image: url("../media/seccion-agenda2.jpg");
+    background-image: url("../media/seccion-agenda3.jpg");
 }
 .seccion-nosotros{
     background-image: url("../media/seccion-insta.jpg");
@@ -184,6 +183,7 @@ button{
 /****************************************************AGENDA*/
 form{
     margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.184);
 }
 select{
     appearance: none;

@@ -124,6 +124,11 @@ section a{
 .seccion-nosotros{
     background-image: url("../media/seccion-insta.jpg");
 }
+.img-seccion{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(232, 124, 124);
+}
 
 /****************************************************CONTACTO*/
 .menu-cont-contacto{

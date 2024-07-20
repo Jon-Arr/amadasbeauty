@@ -30,17 +30,57 @@ i {
 
 /****************************************************HEADER*/
 header {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 100%;
+    height: 35vh;
+}
+
+.galeria-container {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    grid-column: 2 / span 6;
+    grid-row: 2 / span 3;
+    border: 2px double black;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-self: center;
+}
+
+.galeria-container video {
+    position: relative;
+    width: 100%;
+    top: -150px;
+}
+
+.link-logo {
+    display: flex;
+    position: absolute;
+    grid-column: 2 span 1;
+    grid-row: 4 / span 2;
+    align-items: center;
+    justify-content: center;
+    left: calc(1 * (100% / 8));
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px rgb(232, 124, 124);
+    overflow: hidden;
+}
+.logo {
+    width: 100%;
+    height: auto;
+}
+
+/* header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-}
-.galeria-container video{
-    width: 100%;
-    position: relative;
-    top: -150px;
-
 }
 .galeria-container{    
     background-color: rgba(0, 0, 0, 0.485);
@@ -54,6 +94,12 @@ header {
     overflow: hidden;
     
 }
+.galeria-container video{
+    width: 100%;
+    position: relative;
+    top: -150px;
+
+}
 .logo {
     width: 120px;
     position: absolute;
@@ -61,6 +107,47 @@ header {
     left: 3vh;
     border-radius: 30px;
     box-shadow: 5px 5px 5px rgb(232, 124, 124);
+} */
+
+@media (min-width:420px) and (max-width:650px) {
+    header {
+        grid-template-rows: repeat(7, 1fr);
+        height: 40vh;
+    }
+
+    .galeria-container {
+        grid-row: 2 / span 5;
+    }
+
+    .galeria-container video {
+        top: -200px;
+    }
+
+    .link-logo {
+        grid-row: 6 / span 2;
+    }
+}
+
+@media (min-width:650px) {
+    header {
+        grid-template-rows: repeat(9, 1fr);
+        height: 50vh;
+    }
+
+    .galeria-container {
+        grid-row: 3 / span 7;
+    }
+
+    .galeria-container video {
+        top: -500px;
+    }
+
+    .link-logo {
+        position: none;
+        grid-row: 2 / span 2;
+        grid-column: 4 span 2;
+        left: none;
+    }
 }
 
 /****************************************************MAIN*/
@@ -76,22 +163,77 @@ h1 {
     font-family: "loubar";
     text-align: center;
     font-size: 25px;
+    animation: animacionTxt 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes animacionTxt {
+    0% {
+        letter-spacing: 0.3em;
+        -webkit-transform: translateZ(200px);
+        transform: translateZ(200px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0) translateY(0);
+        transform: translateZ(0) translateY(0);
+        opacity: 1;
+    }
 }
 
 p {
-    font-family:"boriboon";
+    font-family: "boriboon";
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation-delay: 1s;
 }
-section{
+@keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+section {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
 }
-section a{
+
+section a {
     width: 90%;
+    animation: aniSection 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
-.cont-section{
+.sectionAgenda{
+    animation-delay: 0.5s;
+}
+.sectionInstagram{
+    animation-delay: 1s;
+}
+
+@keyframes aniSection {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+}
+
+.cont-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +248,8 @@ section a{
     overflow: hidden;
     box-shadow: 10px 10px 5px rgb(232, 124, 124);
 }
-.cont-section p{
+
+.cont-section p {
     width: 100%;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.485);
@@ -115,23 +258,39 @@ section a{
     font-family: "loubar";
     padding: 20px 0;
 }
-.seccion-agenda{
-    background-image: url("../media/seccion-contact3.jpg");    
+
+.seccion-agenda {
+    background-image: url("../media/seccion-contact3.jpg");
 }
-.seccion-contacto{
+
+.seccion-contacto {
     background-image: url("../media/seccion-agenda3.jpg");
 }
-.seccion-nosotros{
+
+.seccion-nosotros {
     background-image: url("../media/seccion-insta.jpg");
 }
-.img-seccion{
+
+.img-seccion {
     width: 100%;
     border-radius: 20px;
     box-shadow: 10px 10px 5px rgb(232, 124, 124);
 }
 
+@media (min-width:650px) {
+    main section {
+        max-width: 1100px;
+    }
+
+    section {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
 /****************************************************CONTACTO*/
-.menu-cont-contacto{
+.menu-cont-contacto {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,31 +300,34 @@ section a{
     margin-top: 20px;
     width: 100%;
 }
-.contacto{
+
+.contacto {
     width: 200px;
     border: 2px solid rgb(175, 91, 91);
     box-shadow: 5px 5px 1px rgb(232, 124, 124);
     border-radius: 20px;
     padding: 20px;
 }
-.contacto i{
+
+.contacto i {
     font-size: 20px;
-    color: aliceblue;
+    color: rgb(240, 248, 255);
+    text-shadow: 0px 0px 2px white;
 }
-.contacto-instagram{
+
+.contacto-instagram {
     color: white;
-    /* background: linear-gradient(11deg, rgba(255,241,0,1) 0%, rgba(171,64,64,1) 45%, rgba(118,20,105,1) 72%, rgba(15,8,134,1) 100%); */
     background: rgb(249, 92, 142);
 }
-.contacto-wsp{
+
+.contacto-wsp {
     color: white;
     background: rgb(95, 186, 95);
 }
-h3{
-    font-family: "loubar";
-    font-size: 15px;
-}
-form{
+
+form {
+    width: 100%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -176,7 +338,18 @@ form{
     border-radius: 20px;
     padding: 10px;
 }
-button{
+
+input {
+    width: 70%;
+    font-size: 15px;
+}
+
+textarea {
+    width: 80%;
+    font-size: 15px;
+}
+
+button {
     appearance: none;
     border: 2px solid rgb(175, 91, 91);
     border-radius: 20px;
@@ -185,12 +358,32 @@ button{
     margin: 20px 0;
 }
 
+@media (min-width:650px) {
+    .menu-cont-contacto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
 /****************************************************AGENDA*/
-form{
+.form-agenda {
+    max-width: 700px;
     margin-bottom: 30px;
     background-color: rgba(0, 0, 0, 0.184);
 }
-select{
+
+#calendar {
+    width: 100%;
+    height: 100%;
+}
+
+select {
     appearance: none;
     border: none;
     border-radius: 5px;
@@ -208,14 +401,17 @@ footer {
     width: 100%;
     margin-bottom: 20px;
 }
-hr{
+
+hr {
     width: 90%;
 }
-.rrss{
+
+.rrss {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
 }
+
 footer i {
     font-size: 17px;
 }

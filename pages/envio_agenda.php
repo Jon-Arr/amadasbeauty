@@ -1,5 +1,7 @@
 <?php
-// Endpoint para recibir los datos del evento
+
+require '../intranet/conexion.php'
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -7,13 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $start = $data['start'];
     $end = $data['end'];
 
-    // Conectar a la base de datos
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "nombre_base_datos";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conexion = new mysqli($servername, $username, $password, $dbname);
 
     if ($conn->connect_error) {
         die("La conexión ha fallado: " . $conn->connect_error);
@@ -31,3 +28,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $conn->close();
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullCalendar Example</title>
+    
+    <style>
+        #calendar {
+            max-width: 900px;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+
+
+
+</body>
+</html>

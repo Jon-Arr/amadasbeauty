@@ -10,6 +10,8 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <meta name="description" content="Amadas Beauty | Belleza y estilo | Depilacion con hilo | Perfilado de cejas | Lifting de pestañas | Laminado y alisado de cejas | Maquillaje semi permanente de cejas |  Agendamiento de horas">
     <title>Agenda - Amadas Beauty</title>
 </head>
 
@@ -19,7 +21,7 @@
         <div class="galeria-container">
             <video src="../media/vid-intro.mp4" muted autoplay loop></video>
         </div>
-        <a href="../index.html">
+        <a class="link-logo" href="../index.html">
             <img class="logo" src="../media/logo.jpg" alt="logo amadas beauty">
         </a>
     </header>
@@ -27,36 +29,48 @@
         <h1>Agenda de horas</h1>
         <p>Seleccione una de nuestras horas disponibles:</p>
         
-        <form action="./envio_agenda.php" method="POST">
+        <form class="form-agenda" action="./envio_agenda.php" method="POST">
             <div id='calendar'></div>
-            <p>Seleccione día y hora</p>
-            <select id="horas-disp" name="horas-disp" required>
-                <option value="" disabled selected>Horas disponibles</option>
-                <option value="Lunes a las 12:00hrs">Lunes a las 12:00hrs</option>
-                <option value="Lunes a las 14:00hrs">Lunes a las 14:00hrs</option>
-                <option value="Lunes a las 16:00hrs">Lunes a las 16:00hrs</option>
-                <option value="Miercoles a las 12:00hrs">Miercoles a las 12:00hrs</option>
-                <option value="Miercoles a las 14:00hrs">Miercoles a las 14:00hrs</option>
-                <option value="Miercoles a las 16:00hrs">Miercoles a las 16:00hrs</option>
-                <option value="Viernes a las 12:00hrs">Viernes a las 12:00hrs</option>
-                <option value="Viernes a las 14:00hrs">Viernes a las 14:00hrs</option>
-                <option value="Viernes a las 16:00hrs">Viernes a las 16:00hrs</option>
+            <p>Seleccione día de atencion</p>
+            <select id="dias-disp" name="dias-disp" required>
+                <option value="" disabled selected>Días disponibles</option>
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">Miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                <option value="Sabado">Sabado</option>
             </select>
             <input id="hora" name="hora" type="text" hidden>
-            <p>Seleccione el servicio que busca</p>
+            <p>Seleccione hora de atencion</p>
+            <select id="horas-disp" name="horas-disp" required>
+                <option value="" disabled selected>Horas disponibles</option>
+                <option value="10:00">10:00</option>
+                <option value="11:30">11:30</option>
+                <option value="13:00">13:00</option>
+                <option value="14:30">14:30</option>
+                <option value="16:00">16:00</option>
+                <option value="17:30">17:30</option>
+            </select>
+            <input id="hora" name="hora" type="text" hidden>
+            <p>Seleccione el servicio de preferencia</p>
             <select name="serv-disp" id="serv-disp" required>
                 <option value="" disabled selected>Servicios disponibles</option>
-                <option id="lif" name="lif" value="Lifting">Lifting</option>
-                <option id="perf" name="perf" value="Perfilado de cejas">Perfilado de cejas</option>
-                <option id="ond" name="ond" value="Ondulado de pestañas">Ondulado de pestañas</option>
+                <option value="Depílacion con hilo">Depílacion con hilo</option>
+                <option value="Perfilado de cejas">Perfilado de cejas</option>
+                <option value="Lifting u ondulado de pestañas">Lifting u ondulado de pestañas</option>
+                <option value="Laminado de cejas">Laminado de cejas</option>
+                <option value="Alisado de cejas">Alisado de cejas</option>
+                <option value="Maquillaje semi permanente de cejas">Maquillaje semi permanente de cejas</option>
+                <option value="Retiro de extensiones de pestañas">Retiro de extensiones de pestañas</option>
             </select>
             <input id="servicio" name="servicio" type="text" hidden>
-            <p>Especialista</p>
-            <select name="esp-disp" id="esp-disp" onchange="showSelectedText()" required>
+            <!-- <p>Especialista</p> -->
+            <!-- <select name="esp-disp" id="esp-disp" onchange="showSelectedText()">
                 <option value="" disabled selected>Especialistas disponibles</option>
                 <option id="sofia" name="sofia" value="Sofia Ahumada">Sofia Ahumada</option>
-            </select>
-            <input id="especialista" name="especialista" type="text" hidden>
+            </select> -->
+            <!-- <input id="especialista" name="especialista" type="text" hidden> -->
             <button onclick="alerta()">Confirmar</button>
         </form>
     </main>
@@ -85,27 +99,27 @@
                     left: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                selectable: true,
-                select: function (info) {
-                    var title = prompt('Enter Event Title:');
-                    if (title) {
-                        calendar.addEvent({
-                            title: title,
-                            start: info.startStr,
-                            end: info.endStr,
-                            allDay: info.allDay
-                        });
-                        var xhr = new XMLHttpRequest();
-                        xhr.open("POST", "envio_agenda.php", true);
-                        xhr.setRequestHeader("Content-Type", "application/json");
-                        xhr.send(JSON.stringify({
-                            title: title,
-                            start: info.startStr,
-                            end: info.endStr
-                        }));
-                    }
-                    calendar.unselect();
-                }
+                selectable: false,
+                // select: function (info) {
+                //     var title = prompt('Enter Event Title:');
+                //     if (title) {
+                //         calendar.addEvent({
+                //             title: title,
+                //             start: info.startStr,
+                //             end: info.endStr,
+                //             allDay: info.allDay
+                //         });
+                //         var xhr = new XMLHttpRequest();
+                //         xhr.open("POST", "envio_agenda.php", true);
+                //         xhr.setRequestHeader("Content-Type", "application/json");
+                //         xhr.send(JSON.stringify({
+                //             title: title,
+                //             start: info.startStr,
+                //             end: info.endStr
+                //         }));
+                //     }
+                //     calendar.unselect();
+                // }
             });
 
             calendar.render();
